@@ -1,0 +1,16 @@
+$(document).ready(function(){
+  console.log("* cookies_es.js *");
+
+
+  $.cookiesDirective({
+    privacyPolicyUri: '/var/notalegal',
+    explicitConsent: false,
+    position : 'bottom',
+    cookieScripts: null, 
+    backgroundColor: '#565656',
+    message: "Esta web usa cookies propias y de terceros para optimizar y adaptarse a tu navegacion y preferencias, entre otros usos. Si continuas navegando entenderemos que aceptas nuestra politica de privacidad.",
+    linkColor: '#ffffff'
+  });
+
+
+});

@@ -1,0 +1,53 @@
+
+
+$(document).ready(function(){
+
+
+
+  $(".notifclose").click( function(e){
+    e.preventDefault();
+    id = $(this).data("id");
+    if ( $(".notif-"+id).hasClass("modal")  )
+      $(".notif-"+id).modal("hide");
+    else
+      $(".notif-"+id).hide();
+
+    closed.push(id.toString());    
+
+    $.cookie('CInotif', closed, { path: '/', expires: 365  } );
+
+  });
+
+
+
+
+  if ($.cookie('CInotif')) 
+  {
+  	var closed=$.cookie("CInotif").split(",");
+  }
+  else
+  {
+  	var closed=[];
+  }
+
+
+  $('.notif').each(function(i, obj) {
+      var id=$(this).data("id");
+      console.log(id, closed.indexOf(id.toString()));
+      if ( closed.indexOf(id.toString()) == -1 )
+      {
+        if ($(this).hasClass("modal"))
+        $(this).modal("show");
+        else
+        $(this).show();
+      }
+  });
+
+
+
+
+});
+
+
+
+
